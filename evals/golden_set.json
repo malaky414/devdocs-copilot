@@ -1,0 +1,212 @@
+[
+  {
+    "id": "q01",
+    "question": "How do I define a path parameter in FastAPI?",
+    "expected_source_files": [
+      "fastapi/tutorial/path-params.md"
+    ]
+  },
+  {
+    "id": "q02",
+    "question": "How can I validate a numeric path parameter such as requiring it to be greater than zero?",
+    "expected_source_files": [
+      "fastapi/tutorial/path-params-numeric-validations.md"
+    ]
+  },
+  {
+    "id": "q03",
+    "question": "How do I declare query parameters in FastAPI?",
+    "expected_source_files": [
+      "fastapi/tutorial/query-params.md"
+    ]
+  },
+  {
+    "id": "q04",
+    "question": "How can I validate a query parameter string with minimum and maximum length?",
+    "expected_source_files": [
+      "fastapi/tutorial/query-params-str-validations.md"
+    ]
+  },
+  {
+    "id": "q05",
+    "question": "How do I configure metadata and other settings for a path operation?",
+    "expected_source_files": [
+      "fastapi/tutorial/path-operation-configuration.md"
+    ]
+  },
+  {
+    "id": "q06",
+    "question": "How do I define a Pydantic model for a request body in FastAPI?",
+    "expected_source_files": [
+      "fastapi/tutorial/body.md"
+    ]
+  },
+  {
+    "id": "q07",
+    "question": "How can I send multiple body parameters to one FastAPI path operation?",
+    "expected_source_files": [
+      "fastapi/tutorial/body-multiple-params.md"
+    ]
+  },
+  {
+    "id": "q08",
+    "question": "How do I define nested Pydantic models in a FastAPI request body?",
+    "expected_source_files": [
+      "fastapi/tutorial/body-nested-models.md"
+    ]
+  },
+  {
+    "id": "q09",
+    "question": "How can I partially update a request model in FastAPI?",
+    "expected_source_files": [
+      "fastapi/tutorial/body-updates.md"
+    ]
+  },
+  {
+    "id": "q10",
+    "question": "How do I specify a response model in FastAPI?",
+    "expected_source_files": [
+      "fastapi/tutorial/response-model.md"
+    ]
+  },
+  {
+    "id": "q11",
+    "question": "How can I return a specific HTTP status code from a FastAPI endpoint?",
+    "expected_source_files": [
+      "fastapi/tutorial/response-status-code.md"
+    ]
+  },
+  {
+    "id": "q12",
+    "question": "How do I use cookies as parameters in FastAPI?",
+    "expected_source_files": [
+      "fastapi/tutorial/cookie-params.md"
+    ]
+  },
+  {
+    "id": "q13",
+    "question": "How do I declare HTTP headers as parameters in FastAPI?",
+    "expected_source_files": [
+      "fastapi/tutorial/header-params.md"
+    ]
+  },
+  {
+    "id": "q14",
+    "question": "How can I receive uploaded files in a FastAPI endpoint?",
+    "expected_source_files": [
+      "fastapi/tutorial/request-files.md"
+    ]
+  },
+  {
+    "id": "q15",
+    "question": "How do I receive both form data and uploaded files in FastAPI?",
+    "expected_source_files": [
+      "fastapi/tutorial/request-forms-and-files.md"
+    ]
+  },
+  {
+    "id": "q16",
+    "question": "How do I configure CORS middleware in FastAPI?",
+    "expected_source_files": [
+      "fastapi/tutorial/cors.md"
+    ]
+  },
+  {
+    "id": "q17",
+    "question": "How do I add middleware to a FastAPI application?",
+    "expected_source_files": [
+      "fastapi/tutorial/middleware.md"
+    ]
+  },
+  {
+    "id": "q18",
+    "question": "How can I run background tasks after returning a response in FastAPI?",
+    "expected_source_files": [
+      "fastapi/tutorial/background-tasks.md"
+    ]
+  },
+  {
+    "id": "q19",
+    "question": "How should I structure a larger FastAPI application with multiple routers?",
+    "expected_source_files": [
+      "fastapi/tutorial/bigger-applications.md"
+    ]
+  },
+  {
+    "id": "q20",
+    "question": "How do dependencies work in FastAPI?",
+    "expected_source_files": [
+      "fastapi/tutorial/dependencies/index.md"
+    ]
+  },
+  {
+    "id": "q21",
+    "question": "How can I use a class as a dependency in FastAPI?",
+    "expected_source_files": [
+      "fastapi/tutorial/dependencies/classes-as-dependencies.md"
+    ]
+  },
+  {
+    "id": "q22",
+    "question": "How do sub-dependencies work in FastAPI?",
+    "expected_source_files": [
+      "fastapi/tutorial/dependencies/sub-dependencies.md"
+    ]
+  },
+  {
+    "id": "q23",
+    "question": "How can I use yield inside a FastAPI dependency for setup and cleanup?",
+    "expected_source_files": [
+      "fastapi/tutorial/dependencies/dependencies-with-yield.md"
+    ]
+  },
+  {
+    "id": "q24",
+    "question": "How do I implement a simple OAuth2 password flow in FastAPI?",
+    "expected_source_files": [
+      "fastapi/tutorial/security/simple-oauth2.md"
+    ]
+  },
+  {
+    "id": "q25",
+    "question": "How can I secure a FastAPI API using OAuth2 and JWT tokens?",
+    "expected_source_files": [
+      "fastapi/tutorial/security/oauth2-jwt.md"
+    ]
+  },
+  {
+    "id": "q26",
+    "question": "How do I implement HTTP Basic authentication with FastAPI?",
+    "expected_source_files": [
+      "fastapi/advanced/security/http-basic-auth.md"
+    ]
+  },
+  {
+    "id": "q27",
+    "question": "How do WebSockets work in FastAPI?",
+    "expected_source_files": [
+      "fastapi/advanced/websockets.md"
+    ]
+  },
+  {
+    "id": "q28",
+    "question": "How can I deploy a FastAPI application using Docker?",
+    "expected_source_files": [
+      "fastapi/deployment/docker.md"
+    ]
+  },
+  {
+    "id": "q29",
+    "question": "How should I test FastAPI applications?",
+    "expected_source_files": [
+      "fastapi/tutorial/testing.md"
+    ]
+  },
+  {
+    "id": "q30",
+    "question": "How can I customize FastAPI's generated OpenAPI documentation?",
+    "expected_source_files": [
+      "fastapi/how-to/extending-openapi.md"
+    ]
+  }
+]
