@@ -100,3 +100,45 @@ Day 2 focuses on retrieval:
 
 
 
+## 2026-10-08 — Day 2: Retrieval
+
+Completed the retrieval layer for DevDocs Copilot.
+
+### Completed
+
+* Added Qdrant as the local vector database.
+* Embedded and indexed 1,901 document chunks.
+* Implemented dense retrieval with metadata filtering.
+* Implemented BM25 lexical retrieval.
+* Implemented Reciprocal Rank Fusion (RRF).
+* Implemented Cross-Encoder reranking.
+* Added retrieval unit tests.
+* Evaluated Dense, BM25, Hybrid RRF, and Hybrid + Rerank on the 30-question golden set.
+
+### Evaluation
+
+| System          | Hit@1 | Hit@3 | Hit@5 |   MRR |
+| --------------- | ----: | ----: | ----: | ----: |
+| Dense           | 0.333 | 0.600 | 0.667 | 0.483 |
+| BM25            | 0.300 | 0.533 | 0.667 | 0.432 |
+| Hybrid RRF      | 0.467 | 0.700 | 0.800 | 0.592 |
+| Hybrid + Rerank | 0.600 | 0.800 | 0.933 | 0.715 |
+
+### Result
+
+Hybrid + Rerank is currently the best-performing retrieval pipeline.
+
+It retrieved an expected source within the top 5 for 28 of 30 golden questions.
+
+### Validation
+
+Pytest: `12 passed`
+
+Evaluation artifacts:
+
+* `evals/retrieval_metrics.json`
+* `docs/retrieval_evaluation.md`
+
+### Next
+
+Day 3 focuses on generation, citations, RAG evaluation, and serving.
