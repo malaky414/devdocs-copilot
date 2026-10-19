@@ -9,20 +9,60 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+
+    services:
+      qdrant:
+        image: qdrant/qdrant:latest
+        ports:
+          - 6333:6333
+
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
           cache: pip
           cache-dependency-path: requirements.txt
+
       - name: Install CPU-only PyTorch
         run: python -m pip install --index-url https://download.pytorch.org/whl/cpu --extra-index-url https://pypi.org/simple "torch==2.12.0+cpu"
+
       - name: Install dependencies
         run: python -m pip install -r requirements.txt
+
+      - name: Wait for Qdrant
+        run: |
+          python - <<'PY'
+          import time
+          import httpx
+
+          url = "http://127.0.0.1:6333/healthz"
+
+          for attempt in range(30):
+              try:
+                  response = httpx.get(url, timeout=2)
+                  if response.is_success:
+                      print("Qdrant is ready")
+                      break
+              except httpx.HTTPError:
+                  pass
+
+              time.sleep(2)
+          else:
+              raise SystemExit("Qdrant did not become ready in time")
+          PY
+
+      - name: Ingest test corpus
+        env:
+          QDRANT_URL: http://127.0.0.1:6333
+          QDRANT_COLLECTION_NAME: fastapi_docs
+        run: python -c "from src.ingestion.ingest_service import ingest_corpus; print(ingest_corpus())"
+
       - name: Compile source and tests
         run: python -m compileall -q src tests
+
       - name: Run tests
         run: python -m pytest -q tests
