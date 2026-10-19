@@ -1,0 +1,911 @@
+{
+  "golden_questions": 30,
+  "candidate_limit": 20,
+  "per_query_candidate_limit": 50,
+  "final_limit": 5,
+  "cache_version": 1,
+  "metrics": {
+    "Dense": {
+      "hit@1": 0.3333333333333333,
+      "hit@3": 0.6,
+      "hit@5": 0.6666666666666666,
+      "mrr": 0.48333333333333334
+    },
+    "BM25": {
+      "hit@1": 0.3,
+      "hit@3": 0.5333333333333333,
+      "hit@5": 0.6666666666666666,
+      "mrr": 0.43166666666666664
+    },
+    "Hybrid RRF": {
+      "hit@1": 0.4666666666666667,
+      "hit@3": 0.7,
+      "hit@5": 0.8,
+      "mrr": 0.5916666666666667
+    },
+    "Hybrid + Rerank": {
+      "hit@1": 0.7666666666666667,
+      "hit@3": 0.9333333333333333,
+      "hit@5": 0.9666666666666667,
+      "mrr": 0.8527777777777777
+    },
+    "Multi-Query Hybrid + Rerank": {
+      "hit@1": 0.7666666666666667,
+      "hit@3": 0.9,
+      "hit@5": 0.9666666666666667,
+      "mrr": 0.8372222222222222
+    }
+  },
+  "per_question": [
+    {
+      "id": "q01",
+      "question": "How do I define a path parameter in FastAPI?",
+      "expected_source_files": [
+        "fastapi/tutorial/path-params.md"
+      ],
+      "queries_used": [
+        "How do I define a path parameter in FastAPI?",
+        "FastAPI path parameter definition example",
+        "How to declare a path variable in FastAPI",
+        "FastAPI route with path parameter syntax"
+      ],
+      "baseline_top5": [
+        "fastapi/tutorial/path-params.md",
+        "fastapi/tutorial/background-tasks.md",
+        "fastapi/reference/request.md",
+        "fastapi/release-notes.md",
+        "fastapi/tutorial/dependencies/index.md"
+      ],
+      "multi_query_top5": [
+        "fastapi/tutorial/path-params.md",
+        "fastapi/release-notes.md",
+        "fastapi/reference/response.md",
+        "fastapi/advanced/using-request-directly.md",
+        "fastapi/tutorial/body-multiple-params.md"
+      ],
+      "baseline_hit_at_5": 1,
+      "multi_query_hit_at_5": 1
+    },
+    {
+      "id": "q02",
+      "question": "How can I validate a numeric path parameter such as requiring it to be greater than zero?",
+      "expected_source_files": [
+        "fastapi/tutorial/path-params-numeric-validations.md"
+      ],
+      "queries_used": [
+        "How can I validate a numeric path parameter such as requiring it to be greater than zero?",
+        "Validate numeric path parameter greater than zero in ASP.NET Core",
+        "Enforce positive integer constraint on route parameter in Express.js",
+        "Implement validation for numeric path variable >0 using Spring MVC @PathVariable"
+      ],
+      "baseline_top5": [
+        "fastapi/tutorial/path-params-numeric-validations.md",
+        "fastapi/tutorial/path-params-numeric-validations.md",
+        "fastapi/tutorial/path-params-numeric-validations.md",
+        "fastapi/tutorial/path-params-numeric-validations.md",
+        "fastapi/tutorial/path-params.md"
+      ],
+      "multi_query_top5": [
+        "fastapi/tutorial/path-params-numeric-validations.md",
+        "fastapi/tutorial/path-params-numeric-validations.md",
+        "fastapi/tutorial/path-params-numeric-validations.md",
+        "fastapi/tutorial/path-params-numeric-validations.md",
+        "fastapi/tutorial/path-params.md"
+      ],
+      "baseline_hit_at_5": 1,
+      "multi_query_hit_at_5": 1
+    },
+    {
+      "id": "q03",
+      "question": "How do I declare query parameters in FastAPI?",
+      "expected_source_files": [
+        "fastapi/tutorial/query-params.md"
+      ],
+      "queries_used": [
+        "How do I declare query parameters in FastAPI?",
+        "Defining query parameters in FastAPI endpoints",
+        "FastAPI syntax for declaring query string arguments",
+        "How to specify query parameters in FastAPI route functions"
+      ],
+      "baseline_top5": [
+        "fastapi/tutorial/query-params.md",
+        "fastapi/tutorial/query-param-models.md",
+        "fastapi/tutorial/query-params.md",
+        "fastapi/tutorial/query-param-models.md",
+        "fastapi/tutorial/query-param-models.md"
+      ],
+      "multi_query_top5": [
+        "fastapi/tutorial/query-params.md",
+        "fastapi/tutorial/query-params.md",
+        "fastapi/tutorial/query-param-models.md",
+        "fastapi/tutorial/query-param-models.md",
+        "fastapi/tutorial/query-params-str-validations.md"
+      ],
+      "baseline_hit_at_5": 1,
+      "multi_query_hit_at_5": 1
+    },
+    {
+      "id": "q04",
+      "question": "How can I validate a query parameter string with minimum and maximum length?",
+      "expected_source_files": [
+        "fastapi/tutorial/query-params-str-validations.md"
+      ],
+      "queries_used": [
+        "How can I validate a query parameter string with minimum and maximum length?",
+        "Validate query parameter string length constraints (min/max) in web API",
+        "Enforce minimum and maximum length on URL query parameter using validation library",
+        "How to check query parameter string length limits in request handling"
+      ],
+      "baseline_top5": [
+        "fastapi/tutorial/query-params-str-validations.md",
+        "fastapi/tutorial/query-params-str-validations.md",
+        "fastapi/tutorial/query-params-str-validations.md",
+        "fastapi/tutorial/query-params-str-validations.md",
+        "fastapi/tutorial/query-params-str-validations.md"
+      ],
+      "multi_query_top5": [
+        "fastapi/tutorial/query-params-str-validations.md",
+        "fastapi/tutorial/query-params-str-validations.md",
+        "fastapi/tutorial/query-params-str-validations.md",
+        "fastapi/tutorial/query-params-str-validations.md",
+        "fastapi/tutorial/query-params-str-validations.md"
+      ],
+      "baseline_hit_at_5": 1,
+      "multi_query_hit_at_5": 1
+    },
+    {
+      "id": "q05",
+      "question": "How do I configure metadata and other settings for a path operation?",
+      "expected_source_files": [
+        "fastapi/tutorial/path-operation-configuration.md"
+      ],
+      "queries_used": [
+        "How do I configure metadata and other settings for a path operation?",
+        "How to set metadata and options for a path operation in OpenAPI specification?",
+        "Configuring path operation metadata and additional settings in Swagger UI",
+        "Adjusting metadata and configuration for a path operation in API documentation"
+      ],
+      "baseline_top5": [
+        "fastapi/tutorial/path-operation-configuration.md",
+        "fastapi/tutorial/metadata.md",
+        "fastapi/tutorial/path-operation-configuration.md",
+        "fastapi/advanced/path-operation-advanced-configuration.md",
+        "fastapi/advanced/path-operation-advanced-configuration.md"
+      ],
+      "multi_query_top5": [
+        "fastapi/tutorial/path-operation-configuration.md",
+        "fastapi/tutorial/metadata.md",
+        "fastapi/tutorial/metadata.md",
+        "fastapi/advanced/path-operation-advanced-configuration.md",
+        "fastapi/advanced/path-operation-advanced-configuration.md"
+      ],
+      "baseline_hit_at_5": 1,
+      "multi_query_hit_at_5": 1
+    },
+    {
+      "id": "q06",
+      "question": "How do I define a Pydantic model for a request body in FastAPI?",
+      "expected_source_files": [
+        "fastapi/tutorial/body.md"
+      ],
+      "queries_used": [
+        "How do I define a Pydantic model for a request body in FastAPI?",
+        "Creating a Pydantic schema for request payload in FastAPI",
+        "FastAPI request body validation using Pydantic model definition",
+        "How to declare a Pydantic class for FastAPI request body"
+      ],
+      "baseline_top5": [
+        "fastapi/tutorial/body.md",
+        "fastapi/advanced/path-operation-advanced-configuration.md",
+        "fastapi/tutorial/body.md",
+        "fastapi/tutorial/header-param-models.md",
+        "fastapi/tutorial/query-param-models.md"
+      ],
+      "multi_query_top5": [
+        "fastapi/tutorial/body.md",
+        "fastapi/tutorial/request-form-models.md",
+        "fastapi/advanced/path-operation-advanced-configuration.md",
+        "fastapi/tutorial/body.md",
+        "fastapi/tutorial/header-param-models.md"
+      ],
+      "baseline_hit_at_5": 1,
+      "multi_query_hit_at_5": 1
+    },
+    {
+      "id": "q07",
+      "question": "How can I send multiple body parameters to one FastAPI path operation?",
+      "expected_source_files": [
+        "fastapi/tutorial/body-multiple-params.md"
+      ],
+      "queries_used": [
+        "How can I send multiple body parameters to one FastAPI path operation?",
+        "FastAPI multiple body parameters in a single path operation",
+        "How to pass several body fields to one FastAPI endpoint",
+        "Sending multiple request bodies to a FastAPI route"
+      ],
+      "baseline_top5": [
+        "fastapi/tutorial/body-multiple-params.md",
+        "fastapi/tutorial/body-multiple-params.md",
+        "fastapi/tutorial/body-multiple-params.md",
+        "fastapi/tutorial/body-multiple-params.md",
+        "fastapi/tutorial/request-files.md"
+      ],
+      "multi_query_top5": [
+        "fastapi/tutorial/body-multiple-params.md",
+        "fastapi/tutorial/body-multiple-params.md",
+        "fastapi/tutorial/body-multiple-params.md",
+        "fastapi/tutorial/body-multiple-params.md",
+        "fastapi/tutorial/request-files.md"
+      ],
+      "baseline_hit_at_5": 1,
+      "multi_query_hit_at_5": 1
+    },
+    {
+      "id": "q08",
+      "question": "How do I define nested Pydantic models in a FastAPI request body?",
+      "expected_source_files": [
+        "fastapi/tutorial/body-nested-models.md"
+      ],
+      "queries_used": [
+        "How do I define nested Pydantic models in a FastAPI request body?",
+        "Creating nested Pydantic schemas for FastAPI request payload",
+        "How to embed Pydantic models inside another model in FastAPI request body",
+        "Defining hierarchical Pydantic classes for FastAPI POST body"
+      ],
+      "baseline_top5": [
+        "fastapi/tutorial/body-nested-models.md",
+        "fastapi/tutorial/body.md",
+        "fastapi/advanced/path-operation-advanced-configuration.md",
+        "fastapi/tutorial/header-param-models.md",
+        "fastapi/tutorial/body-nested-models.md"
+      ],
+      "multi_query_top5": [
+        "fastapi/tutorial/body.md",
+        "fastapi/advanced/path-operation-advanced-configuration.md",
+        "fastapi/tutorial/request-form-models.md",
+        "fastapi/tutorial/header-param-models.md",
+        "fastapi/tutorial/body.md"
+      ],
+      "baseline_hit_at_5": 1,
+      "multi_query_hit_at_5": 0
+    },
+    {
+      "id": "q09",
+      "question": "How can I partially update a request model in FastAPI?",
+      "expected_source_files": [
+        "fastapi/tutorial/body-updates.md"
+      ],
+      "queries_used": [
+        "How can I partially update a request model in FastAPI?",
+        "FastAPI partial update of request model using PATCH endpoint",
+        "How to perform partial update on Pydantic model in FastAPI",
+        "Implementing partial update for request body in FastAPI with optional fields"
+      ],
+      "baseline_top5": [
+        "fastapi/tutorial/body-updates.md",
+        "fastapi/release-notes.md",
+        "fastapi/release-notes.md",
+        "fastapi/release-notes.md",
+        "fastapi/release-notes.md"
+      ],
+      "multi_query_top5": [
+        "fastapi/tutorial/body-updates.md",
+        "fastapi/tutorial/body-updates.md",
+        "fastapi/advanced/using-request-directly.md",
+        "fastapi/release-notes.md",
+        "fastapi/advanced/path-operation-advanced-configuration.md"
+      ],
+      "baseline_hit_at_5": 1,
+      "multi_query_hit_at_5": 1
+    },
+    {
+      "id": "q10",
+      "question": "How do I specify a response model in FastAPI?",
+      "expected_source_files": [
+        "fastapi/tutorial/response-model.md"
+      ],
+      "queries_used": [
+        "How do I specify a response model in FastAPI?",
+        "Setting a response model in FastAPI endpoints",
+        "FastAPI: how to define the response schema for an API route",
+        "Specifying the output model for a FastAPI path operation"
+      ],
+      "baseline_top5": [
+        "fastapi/tutorial/response-status-code.md",
+        "fastapi/tutorial/response-model.md",
+        "fastapi/tutorial/path-operation-configuration.md",
+        "fastapi/tutorial/response-model.md",
+        "fastapi/tutorial/response-model.md"
+      ],
+      "multi_query_top5": [
+        "fastapi/tutorial/response-model.md",
+        "fastapi/advanced/additional-responses.md",
+        "fastapi/tutorial/response-model.md",
+        "fastapi/advanced/response-directly.md",
+        "fastapi/advanced/custom-response.md"
+      ],
+      "baseline_hit_at_5": 1,
+      "multi_query_hit_at_5": 1
+    },
+    {
+      "id": "q11",
+      "question": "How can I return a specific HTTP status code from a FastAPI endpoint?",
+      "expected_source_files": [
+        "fastapi/tutorial/response-status-code.md"
+      ],
+      "queries_used": [
+        "How can I return a specific HTTP status code from a FastAPI endpoint?",
+        "FastAPI endpoint custom HTTP status code example",
+        "How to set HTTP response status in FastAPI route",
+        "Return specific status code from FastAPI view function"
+      ],
+      "baseline_top5": [
+        "fastapi/advanced/additional-status-codes.md",
+        "fastapi/advanced/response-change-status-code.md",
+        "fastapi/tutorial/response-status-code.md",
+        "fastapi/advanced/additional-status-codes.md",
+        "fastapi/advanced/additional-status-codes.md"
+      ],
+      "multi_query_top5": [
+        "fastapi/advanced/additional-status-codes.md",
+        "fastapi/advanced/response-change-status-code.md",
+        "fastapi/tutorial/response-status-code.md",
+        "fastapi/advanced/additional-status-codes.md",
+        "fastapi/advanced/additional-status-codes.md"
+      ],
+      "baseline_hit_at_5": 1,
+      "multi_query_hit_at_5": 1
+    },
+    {
+      "id": "q12",
+      "question": "How do I use cookies as parameters in FastAPI?",
+      "expected_source_files": [
+        "fastapi/tutorial/cookie-params.md"
+      ],
+      "queries_used": [
+        "How do I use cookies as parameters in FastAPI?",
+        "FastAPI retrieve cookie values as function parameters",
+        "Using cookie headers as dependency injection in FastAPI",
+        "Accessing request cookies in FastAPI endpoint parameters"
+      ],
+      "baseline_top5": [
+        "fastapi/advanced/response-cookies.md",
+        "fastapi/tutorial/cookie-params.md",
+        "fastapi/advanced/response-headers.md",
+        "fastapi/tutorial/cookie-param-models.md",
+        "fastapi/tutorial/cookie-param-models.md"
+      ],
+      "multi_query_top5": [
+        "fastapi/advanced/response-cookies.md",
+        "fastapi/tutorial/cookie-params.md",
+        "fastapi/advanced/response-headers.md",
+        "fastapi/tutorial/cookie-param-models.md",
+        "fastapi/tutorial/cookie-param-models.md"
+      ],
+      "baseline_hit_at_5": 1,
+      "multi_query_hit_at_5": 1
+    },
+    {
+      "id": "q13",
+      "question": "How do I declare HTTP headers as parameters in FastAPI?",
+      "expected_source_files": [
+        "fastapi/tutorial/header-params.md"
+      ],
+      "queries_used": [
+        "How do I declare HTTP headers as parameters in FastAPI?",
+        "How to define HTTP header parameters in FastAPI?",
+        "FastAPI: declaring request headers as function arguments",
+        "Using header dependencies in FastAPI to access HTTP headers"
+      ],
+      "baseline_top5": [
+        "fastapi/tutorial/header-params.md",
+        "fastapi/tutorial/header-params.md",
+        "fastapi/tutorial/header-param-models.md",
+        "fastapi/advanced/response-headers.md",
+        "fastapi/reference/request.md"
+      ],
+      "multi_query_top5": [
+        "fastapi/tutorial/header-params.md",
+        "fastapi/tutorial/header-params.md",
+        "fastapi/tutorial/header-param-models.md",
+        "fastapi/advanced/response-headers.md",
+        "fastapi/reference/request.md"
+      ],
+      "baseline_hit_at_5": 1,
+      "multi_query_hit_at_5": 1
+    },
+    {
+      "id": "q14",
+      "question": "How can I receive uploaded files in a FastAPI endpoint?",
+      "expected_source_files": [
+        "fastapi/tutorial/request-files.md"
+      ],
+      "queries_used": [
+        "How can I receive uploaded files in a FastAPI endpoint?",
+        "FastAPI endpoint file upload handling",
+        "How to accept file uploads in FastAPI route",
+        "Receiving multipart/form-data files in FastAPI"
+      ],
+      "baseline_top5": [
+        "fastapi/reference/uploadfile.md",
+        "fastapi/tutorial/request-files.md",
+        "fastapi/tutorial/request-forms-and-files.md",
+        "fastapi/tutorial/request-forms-and-files.md",
+        "fastapi/tutorial/request-files.md"
+      ],
+      "multi_query_top5": [
+        "fastapi/reference/uploadfile.md",
+        "fastapi/tutorial/request-forms-and-files.md",
+        "fastapi/tutorial/request-files.md",
+        "fastapi/release-notes.md",
+        "fastapi/release-notes.md"
+      ],
+      "baseline_hit_at_5": 1,
+      "multi_query_hit_at_5": 1
+    },
+    {
+      "id": "q15",
+      "question": "How do I receive both form data and uploaded files in FastAPI?",
+      "expected_source_files": [
+        "fastapi/tutorial/request-forms-and-files.md"
+      ],
+      "queries_used": [
+        "How do I receive both form data and uploaded files in FastAPI?",
+        "FastAPI how to handle form fields and file uploads together",
+        "Receiving multipart/form-data with files in FastAPI endpoint",
+        "FastAPI endpoint to parse form data and uploaded files simultaneously"
+      ],
+      "baseline_top5": [
+        "fastapi/tutorial/request-forms-and-files.md",
+        "fastapi/tutorial/request-files.md",
+        "fastapi/tutorial/request-forms-and-files.md",
+        "fastapi/tutorial/request-forms-and-files.md",
+        "fastapi/tutorial/request-files.md"
+      ],
+      "multi_query_top5": [
+        "fastapi/tutorial/request-forms-and-files.md",
+        "fastapi/tutorial/request-files.md",
+        "fastapi/tutorial/request-forms-and-files.md",
+        "fastapi/tutorial/request-forms-and-files.md",
+        "fastapi/tutorial/request-files.md"
+      ],
+      "baseline_hit_at_5": 1,
+      "multi_query_hit_at_5": 1
+    },
+    {
+      "id": "q16",
+      "question": "How do I configure CORS middleware in FastAPI?",
+      "expected_source_files": [
+        "fastapi/tutorial/cors.md"
+      ],
+      "queries_used": [
+        "How do I configure CORS middleware in FastAPI?",
+        "FastAPI CORS middleware configuration steps",
+        "How to set up CORS in FastAPI application",
+        "Configuring Cross-Origin Resource Sharing in FastAPI"
+      ],
+      "baseline_top5": [
+        "fastapi/tutorial/cors.md",
+        "fastapi/tutorial/middleware.md",
+        "fastapi/advanced/middleware.md",
+        "fastapi/tutorial/cors.md",
+        "fastapi/tutorial/cors.md"
+      ],
+      "multi_query_top5": [
+        "fastapi/tutorial/cors.md",
+        "fastapi/tutorial/middleware.md",
+        "fastapi/advanced/middleware.md",
+        "fastapi/tutorial/cors.md",
+        "fastapi/tutorial/cors.md"
+      ],
+      "baseline_hit_at_5": 1,
+      "multi_query_hit_at_5": 1
+    },
+    {
+      "id": "q17",
+      "question": "How do I add middleware to a FastAPI application?",
+      "expected_source_files": [
+        "fastapi/tutorial/middleware.md"
+      ],
+      "queries_used": [
+        "How do I add middleware to a FastAPI application?",
+        "FastAPI add middleware example",
+        "How to register middleware in FastAPI",
+        "FastAPI middleware implementation steps"
+      ],
+      "baseline_top5": [
+        "fastapi/tutorial/middleware.md",
+        "fastapi/advanced/middleware.md",
+        "fastapi/advanced/middleware.md",
+        "fastapi/tutorial/frontend.md",
+        "fastapi/advanced/middleware.md"
+      ],
+      "multi_query_top5": [
+        "fastapi/tutorial/middleware.md",
+        "fastapi/advanced/middleware.md",
+        "fastapi/advanced/middleware.md",
+        "fastapi/advanced/middleware.md",
+        "fastapi/release-notes.md"
+      ],
+      "baseline_hit_at_5": 1,
+      "multi_query_hit_at_5": 1
+    },
+    {
+      "id": "q18",
+      "question": "How can I run background tasks after returning a response in FastAPI?",
+      "expected_source_files": [
+        "fastapi/tutorial/background-tasks.md"
+      ],
+      "queries_used": [
+        "How can I run background tasks after returning a response in FastAPI?",
+        "FastAPI background tasks after response",
+        "Execute async tasks post-response in FastAPI",
+        "FastAPI return response then run background job"
+      ],
+      "baseline_top5": [
+        "fastapi/tutorial/background-tasks.md",
+        "fastapi/reference/background.md",
+        "fastapi/tutorial/background-tasks.md",
+        "fastapi/tutorial/middleware.md",
+        "fastapi/advanced/opentelemetry.md"
+      ],
+      "multi_query_top5": [
+        "fastapi/tutorial/background-tasks.md",
+        "fastapi/reference/background.md",
+        "fastapi/tutorial/background-tasks.md",
+        "fastapi/tutorial/middleware.md",
+        "fastapi/advanced/opentelemetry.md"
+      ],
+      "baseline_hit_at_5": 1,
+      "multi_query_hit_at_5": 1
+    },
+    {
+      "id": "q19",
+      "question": "How should I structure a larger FastAPI application with multiple routers?",
+      "expected_source_files": [
+        "fastapi/tutorial/bigger-applications.md"
+      ],
+      "queries_used": [
+        "How should I structure a larger FastAPI application with multiple routers?",
+        "Designing a scalable FastAPI project architecture using multiple APIRouter instances",
+        "Organizing a large FastAPI application with separate router modules",
+        "Best practices for structuring FastAPI apps with multiple routers and dependencies"
+      ],
+      "baseline_top5": [
+        "fastapi/tutorial/bigger-applications.md",
+        "fastapi/tutorial/bigger-applications.md",
+        "fastapi/tutorial/bigger-applications.md",
+        "fastapi/tutorial/bigger-applications.md",
+        "fastapi/tutorial/bigger-applications.md"
+      ],
+      "multi_query_top5": [
+        "fastapi/tutorial/bigger-applications.md",
+        "fastapi/tutorial/bigger-applications.md",
+        "fastapi/tutorial/bigger-applications.md",
+        "fastapi/tutorial/bigger-applications.md",
+        "fastapi/tutorial/bigger-applications.md"
+      ],
+      "baseline_hit_at_5": 1,
+      "multi_query_hit_at_5": 1
+    },
+    {
+      "id": "q20",
+      "question": "How do dependencies work in FastAPI?",
+      "expected_source_files": [
+        "fastapi/tutorial/dependencies/index.md"
+      ],
+      "queries_used": [
+        "How do dependencies work in FastAPI?",
+        "FastAPI dependency injection mechanism explanation",
+        "Understanding dependencies in FastAPI framework",
+        "How to use dependencies in FastAPI applications"
+      ],
+      "baseline_top5": [
+        "fastapi/tutorial/dependencies/index.md",
+        "fastapi/tutorial/dependencies/index.md",
+        "fastapi/reference/dependencies.md",
+        "fastapi/advanced/advanced-dependencies.md",
+        "fastapi/tutorial/bigger-applications.md"
+      ],
+      "multi_query_top5": [
+        "fastapi/tutorial/dependencies/index.md",
+        "fastapi/tutorial/dependencies/index.md",
+        "fastapi/tutorial/dependencies/index.md",
+        "fastapi/reference/dependencies.md",
+        "fastapi/tutorial/dependencies/dependencies-in-path-operation-decorators.md"
+      ],
+      "baseline_hit_at_5": 1,
+      "multi_query_hit_at_5": 1
+    },
+    {
+      "id": "q21",
+      "question": "How can I use a class as a dependency in FastAPI?",
+      "expected_source_files": [
+        "fastapi/tutorial/dependencies/classes-as-dependencies.md"
+      ],
+      "queries_used": [
+        "How can I use a class as a dependency in FastAPI?",
+        "Injecting a class instance as a dependency in FastAPI",
+        "FastAPI dependency injection with a custom class",
+        "Using a Python class as a dependency in FastAPI routes"
+      ],
+      "baseline_top5": [
+        "fastapi/tutorial/dependencies/classes-as-dependencies.md",
+        "fastapi/advanced/advanced-dependencies.md",
+        "fastapi/tutorial/dependencies/classes-as-dependencies.md",
+        "fastapi/tutorial/security/first-steps.md",
+        "fastapi/tutorial/dependencies/dependencies-with-yield.md"
+      ],
+      "multi_query_top5": [
+        "fastapi/tutorial/dependencies/classes-as-dependencies.md",
+        "fastapi/advanced/advanced-dependencies.md",
+        "fastapi/tutorial/dependencies/classes-as-dependencies.md",
+        "fastapi/tutorial/security/get-current-user.md",
+        "fastapi/tutorial/security/simple-oauth2.md"
+      ],
+      "baseline_hit_at_5": 1,
+      "multi_query_hit_at_5": 1
+    },
+    {
+      "id": "q22",
+      "question": "How do sub-dependencies work in FastAPI?",
+      "expected_source_files": [
+        "fastapi/tutorial/dependencies/sub-dependencies.md"
+      ],
+      "queries_used": [
+        "How do sub-dependencies work in FastAPI?",
+        "FastAPI sub-dependency injection mechanism",
+        "How to use nested dependencies in FastAPI",
+        "FastAPI dependency resolution for sub-dependencies"
+      ],
+      "baseline_top5": [
+        "fastapi/tutorial/dependencies/sub-dependencies.md",
+        "fastapi/tutorial/dependencies/sub-dependencies.md",
+        "fastapi/async.md",
+        "fastapi/tutorial/dependencies/dependencies-with-yield.md",
+        "fastapi/advanced/advanced-dependencies.md"
+      ],
+      "multi_query_top5": [
+        "fastapi/tutorial/dependencies/sub-dependencies.md",
+        "fastapi/tutorial/dependencies/sub-dependencies.md",
+        "fastapi/tutorial/dependencies/dependencies-with-yield.md",
+        "fastapi/tutorial/dependencies/index.md",
+        "fastapi/tutorial/dependencies/index.md"
+      ],
+      "baseline_hit_at_5": 1,
+      "multi_query_hit_at_5": 1
+    },
+    {
+      "id": "q23",
+      "question": "How can I use yield inside a FastAPI dependency for setup and cleanup?",
+      "expected_source_files": [
+        "fastapi/tutorial/dependencies/dependencies-with-yield.md"
+      ],
+      "queries_used": [
+        "How can I use yield inside a FastAPI dependency for setup and cleanup?",
+        "FastAPI dependency using yield for resource initialization and teardown",
+        "How to implement setup and cleanup with yield in FastAPI dependency",
+        "Using yield in FastAPI dependency to perform setup and cleanup operations"
+      ],
+      "baseline_top5": [
+        "fastapi/tutorial/dependencies/dependencies-with-yield.md",
+        "fastapi/release-notes.md",
+        "fastapi/release-notes.md",
+        "fastapi/tutorial/dependencies/dependencies-with-yield.md",
+        "fastapi/tutorial/dependencies/dependencies-with-yield.md"
+      ],
+      "multi_query_top5": [
+        "fastapi/tutorial/dependencies/dependencies-with-yield.md",
+        "fastapi/release-notes.md",
+        "fastapi/tutorial/dependencies/dependencies-with-yield.md",
+        "fastapi/tutorial/dependencies/dependencies-with-yield.md",
+        "fastapi/tutorial/dependencies/dependencies-with-yield.md"
+      ],
+      "baseline_hit_at_5": 1,
+      "multi_query_hit_at_5": 1
+    },
+    {
+      "id": "q24",
+      "question": "How do I implement a simple OAuth2 password flow in FastAPI?",
+      "expected_source_files": [
+        "fastapi/tutorial/security/simple-oauth2.md"
+      ],
+      "queries_used": [
+        "How do I implement a simple OAuth2 password flow in FastAPI?",
+        "Implement OAuth2 password grant in FastAPI",
+        "FastAPI OAuth2 password flow example",
+        "How to set up password-based OAuth2 in FastAPI"
+      ],
+      "baseline_top5": [
+        "fastapi/tutorial/security/simple-oauth2.md",
+        "fastapi/tutorial/security/first-steps.md",
+        "fastapi/advanced/security/oauth2-scopes.md",
+        "fastapi/tutorial/security/simple-oauth2.md",
+        "fastapi/tutorial/security/first-steps.md"
+      ],
+      "multi_query_top5": [
+        "fastapi/tutorial/security/simple-oauth2.md",
+        "fastapi/tutorial/security/first-steps.md",
+        "fastapi/advanced/security/oauth2-scopes.md",
+        "fastapi/tutorial/security/first-steps.md",
+        "fastapi/tutorial/security/oauth2-jwt.md"
+      ],
+      "baseline_hit_at_5": 1,
+      "multi_query_hit_at_5": 1
+    },
+    {
+      "id": "q25",
+      "question": "How can I secure a FastAPI API using OAuth2 and JWT tokens?",
+      "expected_source_files": [
+        "fastapi/tutorial/security/oauth2-jwt.md"
+      ],
+      "queries_used": [
+        "How can I secure a FastAPI API using OAuth2 and JWT tokens?",
+        "Implement OAuth2 authentication with JWT in FastAPI",
+        "Secure FastAPI endpoints using OAuth2 and JSON Web Tokens",
+        "FastAPI OAuth2 JWT token security setup"
+      ],
+      "baseline_top5": [
+        "fastapi/tutorial/security/oauth2-jwt.md",
+        "fastapi/tutorial/security/oauth2-jwt.md",
+        "fastapi/tutorial/security/oauth2-jwt.md",
+        "fastapi/tutorial/security/simple-oauth2.md",
+        "fastapi/tutorial/security/simple-oauth2.md"
+      ],
+      "multi_query_top5": [
+        "fastapi/tutorial/security/oauth2-jwt.md",
+        "fastapi/tutorial/security/oauth2-jwt.md",
+        "fastapi/features.md",
+        "fastapi/tutorial/security/first-steps.md",
+        "fastapi/tutorial/security/first-steps.md"
+      ],
+      "baseline_hit_at_5": 1,
+      "multi_query_hit_at_5": 1
+    },
+    {
+      "id": "q26",
+      "question": "How do I implement HTTP Basic authentication with FastAPI?",
+      "expected_source_files": [
+        "fastapi/advanced/security/http-basic-auth.md"
+      ],
+      "queries_used": [
+        "How do I implement HTTP Basic authentication with FastAPI?",
+        "Implement HTTP Basic authentication in FastAPI",
+        "FastAPI example for HTTP Basic Auth",
+        "How to add Basic Auth to FastAPI endpoints"
+      ],
+      "baseline_top5": [
+        "fastapi/advanced/security/http-basic-auth.md",
+        "fastapi/features.md",
+        "fastapi/tutorial/security/index.md",
+        "fastapi/how-to/authentication-error-status-code.md",
+        "fastapi/advanced/security/oauth2-scopes.md"
+      ],
+      "multi_query_top5": [
+        "fastapi/advanced/security/http-basic-auth.md",
+        "fastapi/how-to/authentication-error-status-code.md",
+        "fastapi/tutorial/security/first-steps.md",
+        "fastapi/tutorial/security/first-steps.md",
+        "fastapi/index.md"
+      ],
+      "baseline_hit_at_5": 1,
+      "multi_query_hit_at_5": 1
+    },
+    {
+      "id": "q27",
+      "question": "How do WebSockets work in FastAPI?",
+      "expected_source_files": [
+        "fastapi/advanced/websockets.md"
+      ],
+      "queries_used": [
+        "How do WebSockets work in FastAPI?",
+        "FastAPI WebSocket implementation details",
+        "Using WebSockets with FastAPI for real‑time communication",
+        "FastAPI WebSocket example and usage guide"
+      ],
+      "baseline_top5": [
+        "fastapi/reference/websockets.md",
+        "fastapi/advanced/websockets.md",
+        "fastapi/reference/websockets.md",
+        "fastapi/advanced/websockets.md",
+        "fastapi/advanced/websockets.md"
+      ],
+      "multi_query_top5": [
+        "fastapi/reference/websockets.md",
+        "fastapi/advanced/websockets.md",
+        "fastapi/reference/websockets.md",
+        "fastapi/advanced/websockets.md",
+        "fastapi/advanced/websockets.md"
+      ],
+      "baseline_hit_at_5": 1,
+      "multi_query_hit_at_5": 1
+    },
+    {
+      "id": "q28",
+      "question": "How can I deploy a FastAPI application using Docker?",
+      "expected_source_files": [
+        "fastapi/deployment/docker.md"
+      ],
+      "queries_used": [
+        "How can I deploy a FastAPI application using Docker?",
+        "Deploy FastAPI app with Docker containerization",
+        "Dockerizing a FastAPI application deployment steps",
+        "FastAPI deployment using Docker Compose"
+      ],
+      "baseline_top5": [
+        "fastapi/deployment/docker.md",
+        "fastapi/deployment/docker.md",
+        "fastapi/deployment/docker.md",
+        "fastapi/deployment/docker.md",
+        "fastapi/tutorial/first-steps.md"
+      ],
+      "multi_query_top5": [
+        "fastapi/deployment/docker.md",
+        "fastapi/deployment/docker.md",
+        "fastapi/deployment/docker.md",
+        "fastapi/deployment/docker.md",
+        "fastapi/deployment/docker.md"
+      ],
+      "baseline_hit_at_5": 1,
+      "multi_query_hit_at_5": 1
+    },
+    {
+      "id": "q29",
+      "question": "How should I test FastAPI applications?",
+      "expected_source_files": [
+        "fastapi/tutorial/testing.md"
+      ],
+      "queries_used": [
+        "How should I test FastAPI applications?",
+        "Best practices for unit and integration testing in FastAPI",
+        "How to write test cases for FastAPI endpoints using pytest",
+        "Testing FastAPI applications with TestClient and pytest"
+      ],
+      "baseline_top5": [
+        "fastapi/reference/testclient.md",
+        "fastapi/deployment/versions.md",
+        "fastapi/advanced/async-tests.md",
+        "fastapi/tutorial/testing.md",
+        "fastapi/tutorial/testing.md"
+      ],
+      "multi_query_top5": [
+        "fastapi/reference/testclient.md",
+        "fastapi/deployment/versions.md",
+        "fastapi/advanced/async-tests.md",
+        "fastapi/tutorial/testing.md",
+        "fastapi/tutorial/testing.md"
+      ],
+      "baseline_hit_at_5": 1,
+      "multi_query_hit_at_5": 1
+    },
+    {
+      "id": "q30",
+      "question": "How can I customize FastAPI's generated OpenAPI documentation?",
+      "expected_source_files": [
+        "fastapi/how-to/extending-openapi.md"
+      ],
+      "queries_used": [
+        "How can I customize FastAPI's generated OpenAPI documentation?",
+        "How to modify FastAPI's OpenAPI schema generation",
+        "Customizing the OpenAPI documentation produced by FastAPI",
+        "Techniques for altering FastAPI's generated OpenAPI docs"
+      ],
+      "baseline_top5": [
+        "fastapi/how-to/general.md",
+        "fastapi/tutorial/first-steps.md",
+        "fastapi/advanced/generate-clients.md",
+        "fastapi/how-to/separate-openapi-schemas.md",
+        "fastapi/tutorial/first-steps.md"
+      ],
+      "multi_query_top5": [
+        "fastapi/advanced/behind-a-proxy.md",
+        "fastapi/tutorial/first-steps.md",
+        "fastapi/tutorial/first-steps.md",
+        "fastapi/advanced/path-operation-advanced-configuration.md",
+        "fastapi/how-to/extending-openapi.md"
+      ],
+      "baseline_hit_at_5": 0,
+      "multi_query_hit_at_5": 1
+    }
+  ]
+}

@@ -1,0 +1,288 @@
+{
+  "metric": "faithfulness",
+  "model": "openai/gpt-oss-20b",
+  "checkpoint_created_at": "2026-10-19T14:37:41.921609+03:00",
+  "completion_state": "partial_paused",
+  "total_golden_questions": 30,
+  "cached_questions": 16,
+  "scored_questions": 14,
+  "mean_faithfulness": 0.8665647635572448,
+  "status_counts": {
+    "abstained": 1,
+    "complete": 14,
+    "evaluation_failed": 1,
+    "not_run": 14
+  },
+  "results": [
+    {
+      "id": "q01",
+      "question": "How do I define a path parameter in FastAPI?",
+      "evaluation_status": "complete",
+      "faithfulness": 0.8,
+      "source_count": 5,
+      "answer_saved": true,
+      "evaluation_error": null
+    },
+    {
+      "id": "q02",
+      "question": "How can I validate a numeric path parameter such as requiring it to be greater than zero?",
+      "evaluation_status": "complete",
+      "faithfulness": 1.0,
+      "source_count": 5,
+      "answer_saved": true,
+      "evaluation_error": null
+    },
+    {
+      "id": "q03",
+      "question": "How do I declare query parameters in FastAPI?",
+      "evaluation_status": "complete",
+      "faithfulness": 0.8333333333333334,
+      "source_count": 5,
+      "answer_saved": true,
+      "evaluation_error": null
+    },
+    {
+      "id": "q04",
+      "question": "How can I validate a query parameter string with minimum and maximum length?",
+      "evaluation_status": "complete",
+      "faithfulness": 0.9,
+      "source_count": 5,
+      "answer_saved": true,
+      "evaluation_error": null
+    },
+    {
+      "id": "q05",
+      "question": "How do I configure metadata and other settings for a path operation?",
+      "evaluation_status": "complete",
+      "faithfulness": 0.7692307692307693,
+      "source_count": 5,
+      "answer_saved": true,
+      "evaluation_error": null
+    },
+    {
+      "id": "q06",
+      "question": "How do I define a Pydantic model for a request body in FastAPI?",
+      "evaluation_status": "complete",
+      "faithfulness": 1.0,
+      "source_count": 5,
+      "answer_saved": true,
+      "evaluation_error": null
+    },
+    {
+      "id": "q07",
+      "question": "How can I send multiple body parameters to one FastAPI path operation?",
+      "evaluation_status": "complete",
+      "faithfulness": 0.9,
+      "source_count": 5,
+      "answer_saved": true,
+      "evaluation_error": null
+    },
+    {
+      "id": "q08",
+      "question": "How do I define nested Pydantic models in a FastAPI request body?",
+      "evaluation_status": "abstained",
+      "faithfulness": null,
+      "source_count": 5,
+      "answer_saved": true,
+      "evaluation_error": null
+    },
+    {
+      "id": "q09",
+      "question": "How can I partially update a request model in FastAPI?",
+      "evaluation_status": "complete",
+      "faithfulness": 1.0,
+      "source_count": 5,
+      "answer_saved": true,
+      "evaluation_error": null
+    },
+    {
+      "id": "q10",
+      "question": "How do I specify a response model in FastAPI?",
+      "evaluation_status": "complete",
+      "faithfulness": 0.8571428571428571,
+      "source_count": 5,
+      "answer_saved": true,
+      "evaluation_error": null
+    },
+    {
+      "id": "q11",
+      "question": "How can I return a specific HTTP status code from a FastAPI endpoint?",
+      "evaluation_status": "complete",
+      "faithfulness": 0.9230769230769231,
+      "source_count": 5,
+      "answer_saved": true,
+      "evaluation_error": null
+    },
+    {
+      "id": "q12",
+      "question": "How do I use cookies as parameters in FastAPI?",
+      "evaluation_status": "complete",
+      "faithfulness": 1.0,
+      "source_count": 5,
+      "answer_saved": true,
+      "evaluation_error": null
+    },
+    {
+      "id": "q13",
+      "question": "How do I declare HTTP headers as parameters in FastAPI?",
+      "evaluation_status": "complete",
+      "faithfulness": 1.0,
+      "source_count": 5,
+      "answer_saved": true,
+      "evaluation_error": null
+    },
+    {
+      "id": "q14",
+      "question": "How can I receive uploaded files in a FastAPI endpoint?",
+      "evaluation_status": "complete",
+      "faithfulness": 0.3157894736842105,
+      "source_count": 5,
+      "answer_saved": true,
+      "evaluation_error": null
+    },
+    {
+      "id": "q15",
+      "question": "How do I receive both form data and uploaded files in FastAPI?",
+      "evaluation_status": "complete",
+      "faithfulness": 0.8333333333333334,
+      "source_count": 5,
+      "answer_saved": true,
+      "evaluation_error": null
+    },
+    {
+      "id": "q16",
+      "question": "How do I configure CORS middleware in FastAPI?",
+      "evaluation_status": "evaluation_failed",
+      "faithfulness": null,
+      "source_count": 5,
+      "answer_saved": true,
+      "evaluation_error": "InstructorRetryException: 1 validation error for StatementGeneratorOutput\n  Invalid JSON: expected `,` or `]` at line 6 column 48 [type=json_invalid, input_value='{\\n  \"statements\": [\\n  ...CORS\\u202f[1].\"\\n  ]\\n}', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/json_invalid"
+    },
+    {
+      "id": "q17",
+      "question": "How do I add middleware to a FastAPI application?",
+      "evaluation_status": "not_run",
+      "faithfulness": null,
+      "source_count": 0,
+      "answer_saved": false,
+      "evaluation_error": null
+    },
+    {
+      "id": "q18",
+      "question": "How can I run background tasks after returning a response in FastAPI?",
+      "evaluation_status": "not_run",
+      "faithfulness": null,
+      "source_count": 0,
+      "answer_saved": false,
+      "evaluation_error": null
+    },
+    {
+      "id": "q19",
+      "question": "How should I structure a larger FastAPI application with multiple routers?",
+      "evaluation_status": "not_run",
+      "faithfulness": null,
+      "source_count": 0,
+      "answer_saved": false,
+      "evaluation_error": null
+    },
+    {
+      "id": "q20",
+      "question": "How do dependencies work in FastAPI?",
+      "evaluation_status": "not_run",
+      "faithfulness": null,
+      "source_count": 0,
+      "answer_saved": false,
+      "evaluation_error": null
+    },
+    {
+      "id": "q21",
+      "question": "How can I use a class as a dependency in FastAPI?",
+      "evaluation_status": "not_run",
+      "faithfulness": null,
+      "source_count": 0,
+      "answer_saved": false,
+      "evaluation_error": null
+    },
+    {
+      "id": "q22",
+      "question": "How do sub-dependencies work in FastAPI?",
+      "evaluation_status": "not_run",
+      "faithfulness": null,
+      "source_count": 0,
+      "answer_saved": false,
+      "evaluation_error": null
+    },
+    {
+      "id": "q23",
+      "question": "How can I use yield inside a FastAPI dependency for setup and cleanup?",
+      "evaluation_status": "not_run",
+      "faithfulness": null,
+      "source_count": 0,
+      "answer_saved": false,
+      "evaluation_error": null
+    },
+    {
+      "id": "q24",
+      "question": "How do I implement a simple OAuth2 password flow in FastAPI?",
+      "evaluation_status": "not_run",
+      "faithfulness": null,
+      "source_count": 0,
+      "answer_saved": false,
+      "evaluation_error": null
+    },
+    {
+      "id": "q25",
+      "question": "How can I secure a FastAPI API using OAuth2 and JWT tokens?",
+      "evaluation_status": "not_run",
+      "faithfulness": null,
+      "source_count": 0,
+      "answer_saved": false,
+      "evaluation_error": null
+    },
+    {
+      "id": "q26",
+      "question": "How do I implement HTTP Basic authentication with FastAPI?",
+      "evaluation_status": "not_run",
+      "faithfulness": null,
+      "source_count": 0,
+      "answer_saved": false,
+      "evaluation_error": null
+    },
+    {
+      "id": "q27",
+      "question": "How do WebSockets work in FastAPI?",
+      "evaluation_status": "not_run",
+      "faithfulness": null,
+      "source_count": 0,
+      "answer_saved": false,
+      "evaluation_error": null
+    },
+    {
+      "id": "q28",
+      "question": "How can I deploy a FastAPI application using Docker?",
+      "evaluation_status": "not_run",
+      "faithfulness": null,
+      "source_count": 0,
+      "answer_saved": false,
+      "evaluation_error": null
+    },
+    {
+      "id": "q29",
+      "question": "How should I test FastAPI applications?",
+      "evaluation_status": "not_run",
+      "faithfulness": null,
+      "source_count": 0,
+      "answer_saved": false,
+      "evaluation_error": null
+    },
+    {
+      "id": "q30",
+      "question": "How can I customize FastAPI's generated OpenAPI documentation?",
+      "evaluation_status": "not_run",
+      "faithfulness": null,
+      "source_count": 0,
+      "answer_saved": false,
+      "evaluation_error": null
+    }
+  ]
+}

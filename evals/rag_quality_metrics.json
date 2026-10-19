@@ -1,0 +1,93 @@
+{
+  "metric": "faithfulness",
+  "model": "openai/gpt-oss-20b",
+  "questions_evaluated": 1,
+  "scored_questions": 0,
+  "abstained_questions": 0,
+  "mean_faithfulness": null,
+  "results": [
+    {
+      "id": "q16",
+      "question": "How do I configure CORS middleware in FastAPI?",
+      "answer": "To enable Cross‑Origin Resource Sharing (CORS) in a FastAPI app you add the built‑in `CORSMiddleware` as a middleware component.  \nThe middleware needs a few configuration options:\n\n| Parameter | What it controls | Typical value |\n|-----------|------------------|---------------|\n| `allow_origins` | List of origins that are allowed to make cross‑origin requests. | `[\"http://localhost\", \"https://example.com\"]` |\n| `allow_credentials` | Whether to allow cookies / Authorization headers. | `True` or `False` |\n| `allow_methods` | HTTP methods that are permitted. Use `\"*\"` for all. | `[\"GET\", \"POST\"]` or `\"*\"` |\n| `allow_headers` | HTTP headers that can be sent by the client. Use `\"*\"` for all. | `[\"Content-Type\"]` or `\"*\"` |\n| `expose_headers` | Headers that the browser is allowed to read from the response. | `[\"X-My-Custom-Header\"]` |\n\n```python\nfrom fastapi import FastAPI\nfrom fastapi.middleware.cors import CORSMiddleware\n\napp = FastAPI()\n\norigins = [\n    \"http://localhost.tiangolo.com\",\n    \"https://localhost.tiangolo.com\",\n    \"http://localhost\",\n    \"http://localhost:8080\",\n]\n\napp.add_middleware(\n    CORSMiddleware,\n    allow_origins=origins,          # allowed origins\n    allow_credentials=True,        # allow cookies / auth headers\n    allow_methods=[\"*\"],           # allow all HTTP methods\n    allow_headers=[\"*\"],           # allow all headers\n    # expose_headers=[\"X-My-Custom-Header\"],  # optional\n)\n\n@app.get(\"/\")\nasync def main():\n    return {\"message\": \"Hello World\"}\n```\n\nThe default `CORSMiddleware` settings are restrictive, so you must explicitly enable the origins, methods, or headers you need for browsers to use your API in a cross‑domain context.  \nThis configuration is taken from the FastAPI tutorial on CORS [1].",
+      "faithfulness": null,
+      "evaluation_status": "evaluation_failed",
+      "evaluation_error": "InstructorRetryException: 1 validation error for StatementGeneratorOutput\n  Invalid JSON: expected `,` or `]` at line 6 column 48 [type=json_invalid, input_value='{\\n  \"statements\": [\\n  ...CORS\\u202f[1].\"\\n  ]\\n}', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/json_invalid",
+      "sources": [
+        {
+          "id": 1,
+          "file_name": "cors.md",
+          "source_path": "fastapi/tutorial/cors.md",
+          "headings": [
+            "CORS (Cross-Origin Resource Sharing) { #cors-cross-origin-resource-sharing }",
+            "Use `CORSMiddleware` { #use-corsmiddleware }"
+          ]
+        },
+        {
+          "id": 2,
+          "file_name": "middleware.md",
+          "source_path": "fastapi/tutorial/middleware.md",
+          "headings": [
+            "Middleware { #middleware }",
+            "Create a middleware { #create-a-middleware }"
+          ]
+        },
+        {
+          "id": 3,
+          "file_name": "middleware.md",
+          "source_path": "fastapi/advanced/middleware.md",
+          "headings": [
+            "Advanced Middleware { #advanced-middleware }"
+          ]
+        },
+        {
+          "id": 4,
+          "file_name": "cors.md",
+          "source_path": "fastapi/tutorial/cors.md",
+          "headings": [
+            "CORS (Cross-Origin Resource Sharing) { #cors-cross-origin-resource-sharing }",
+            "Use `CORSMiddleware` { #use-corsmiddleware }",
+            "Simple requests { #simple-requests }"
+          ]
+        },
+        {
+          "id": 5,
+          "file_name": "cors.md",
+          "source_path": "fastapi/tutorial/cors.md",
+          "headings": [
+            "CORS (Cross-Origin Resource Sharing) { #cors-cross-origin-resource-sharing }",
+            "Use `CORSMiddleware` { #use-corsmiddleware }",
+            "CORS preflight requests { #cors-preflight-requests }"
+          ]
+        }
+      ],
+      "retrieved_contexts": [
+        "You can configure it in your **FastAPI** application using the `CORSMiddleware`.\n\n* Import `CORSMiddleware`.\n* Create a list of allowed origins (as strings).\n* Add it as a \"middleware\" to your **FastAPI** application.\n\nYou can also specify whether your backend allows:\n\n* Credentials (Authorization headers, Cookies, etc).\n* Specific HTTP methods (`POST`, `PUT`) or all of them with the wildcard `\"*\"`.\n* Specific HTTP headers or all of them with the wildcard `\"*\"`.\n\n```python\nfrom fastapi import FastAPI\nfrom fastapi.middleware.cors import CORSMiddleware\n\napp = FastAPI()\n\norigins = [\n    \"http://localhost.tiangolo.com\",\n    \"https://localhost.tiangolo.com\",\n    \"http://localhost\",\n    \"http://localhost:8080\",\n]\n\napp.add_middleware(\n    CORSMiddleware,\n    allow_origins=origins,\n    allow_credentials=True,\n    allow_methods=[\"*\"],\n    allow_headers=[\"*\"],\n)\n\n\n@app.get(\"/\")\nasync def main():\n    return {\"message\": \"Hello World\"}\n```\n\nThe default parameters used by the `CORSMiddleware` implementation are restrictive by default, so you'll need to explicitly enable particular origins, methods, or headers, in order for browsers to be permitted to use them in a Cross-Domain context.\n\nThe foll",
+        "To create a middleware you use the decorator `@app.middleware(\"http\")` on top of a function.\n\nThe middleware function receives:\n\n* The `request`.\n* A function `call_next` that will receive the `request` as a parameter.\n    * This function will pass the `request` to the corresponding *path operation*.\n    * Then it returns the `response` generated by the corresponding *path operation*.\n* You can then further modify the `response` before returning it.\n\n```python\nimport time\n\nfrom fastapi import FastAPI, Request\n\napp = FastAPI()\n\n\n@app.middleware(\"http\")\nasync def add_process_time_header(request: Request, call_next):\n    start_time = time.perf_counter()\n    response = await call_next(request)\n    process_time = time.perf_counter() - start_time\n    response.headers[\"X-Process-Time\"] = str(process_time)\n    return response\n```\n\n/// tip\n\nKeep in mind that custom proprietary headers can be added [using the `X-` prefix](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers).\n\nBut if you have custom headers that you want a client in a browser to be able to see, you need to add them to your CORS configurations ([CORS (Cross-Origin Resource Sharing)](cors.md)) using the parameter `expose_",
+        "In the main tutorial you read how to add [Custom Middleware](../tutorial/middleware.md) to your application.\n\nAnd then you also read how to handle [CORS with the `CORSMiddleware`](../tutorial/cors.md).\n\nIn this section we'll see how to use other middlewares.",
+        "Any request with an `Origin` header. In this case the middleware will pass the request through as normal, but will include appropriate CORS headers on the response.",
+        "These are any `OPTIONS` request with `Origin` and `Access-Control-Request-Method` headers.\n\nIn this case the middleware will intercept the incoming request and respond with appropriate CORS headers, and either a `200` or `400` response for informational purposes."
+      ],
+      "retrieval_metadata": {
+        "strategy": "multi_query_hybrid_rrf",
+        "queries_used": [
+          "How do I configure CORS middleware in FastAPI?",
+          "FastAPI CORS middleware configuration",
+          "FastAPI app.add_middleware CORSMiddleware origins methods headers expose",
+          "FastAPI CORS CORSMiddleware allow_origins allow_methods allow_headers allow_credentials expose_headers max_age"
+        ],
+        "query_count": 4,
+        "per_query_candidate_limit": 50,
+        "candidate_count": 20,
+        "reranked_count": 5,
+        "candidate_limit": 20,
+        "source_limit": 5
+      },
+      "citation_validation": {
+        "valid": true,
+        "unknown_source_ids": [],
+        "error": null
+      }
+    }
+  ]
+}

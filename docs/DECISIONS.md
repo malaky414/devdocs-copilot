@@ -108,3 +108,16 @@ Adding the Cross-Encoder improved Hit@5 further to 0.933 and increased MRR to 0.
 The benchmark supports using Hybrid + Rerank as the retrieval pipeline for DevDocs Copilot.
 
 This decision should be revisited if the corpus, embedding model, chunking strategy, or golden evaluation set changes significantly.
+## 2026-10-19 — Pause Golden Set Evaluation
+
+**Decision:** Pause the full RAG evaluation and preserve the current
+checkpoint instead of continuing to spend API quota.
+
+**Reason:** The evaluation encountered repeated provider rate limits
+and malformed structured JSON from the faithfulness evaluator.
+Switching to MD_JSON resolved one evaluation failure but did not
+eliminate the issue.
+
+**Consequence:** Existing cached answers and scores remain available.
+The partial results are evidence of progress, not a final quality
+claim for the full Golden Set.

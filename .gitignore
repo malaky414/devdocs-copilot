@@ -1,20 +1,39 @@
-# Virtual environment
+# Virtual environments
 .venv/
+venv/
 
-# Environment variables / secrets
+# Environment variables and secrets
 .env
+.env.*
+!.env.example
 
-# Python cache
+# Python cache and test artifacts
 __pycache__/
 *.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
 
-# Jupyter
+# Jupyter and IDE
 .ipynb_checkpoints/
-
-# IDE
 .vscode/
 .idea/
 
-# OS
+# OS files
 .DS_Store
 Thumbs.db
+
+# Local upstream FastAPI source trees; the indexed Markdown corpus under data/raw is kept separately.
+data/raw/docs_src/
+data/source/
+
+# Local evaluation caches
+evals/*cache*.json
+
+# Temporary development scripts
+finalize_devdocs.ps1
+scripts/debug_query_expansion.py
+scripts/inspect_*.py
+scripts/smoke_test_answer_service.py

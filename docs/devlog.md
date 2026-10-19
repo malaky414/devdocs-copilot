@@ -142,3 +142,14 @@ Evaluation artifacts:
 ### Next
 
 Day 3 focuses on generation, citations, RAG evaluation, and serving.
+## 2026-10-19 — RAG Evaluation Checkpoint
+
+- Paused the 30-question Golden Set evaluation at Q16.
+- Saved a checkpoint from the local evaluation cache.
+- Q1–Q15 have 14 scored results and one abstention.
+- Q14 returned a low Faithfulness score and requires review.
+- Q16 answer generation succeeded, but Faithfulness evaluation failed
+  because the evaluator returned malformed JSON.
+- The evaluation was paused to avoid spending more API quota while
+  investigating structured-output reliability.
+- The full 30-question evaluation remains incomplete.

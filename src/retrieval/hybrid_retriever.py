@@ -1,3 +1,5 @@
+from unittest import result
+
 from src.retrieval.bm25_retriever import BM25Retriever
 from src.retrieval.dense_retriever import DenseRetriever
 
@@ -38,6 +40,8 @@ class HybridRetriever:
                     "rrf_score": 0.0,
                     "dense_rank": None,
                     "bm25_rank": None,
+                    "dense_score": None,
+                    "bm25_score": None,
                 },
             )
 
@@ -45,6 +49,8 @@ class HybridRetriever:
                 1.0 / (self.rrf_k + rank)
             )
             fused[key]["dense_rank"] = rank
+            fused[key]["dense_score"] = float(result["score"])
+            result_data.setdefault(key, result)
             result_data[key] = result
 
         for rank, result in enumerate(bm25_results, start=1):
@@ -56,6 +62,8 @@ class HybridRetriever:
                     "rrf_score": 0.0,
                     "dense_rank": None,
                     "bm25_rank": None,
+                    "dense_score": None,
+                    "bm25_score": None,
                 },
             )
 
@@ -63,6 +71,8 @@ class HybridRetriever:
                 1.0 / (self.rrf_k + rank)
             )
             fused[key]["bm25_rank"] = rank
+            fused[key]["bm25_score"] = float(result["score"])
+            result_data.setdefault(key, result)
             result_data[key] = result
 
         ranked_keys = sorted(
@@ -80,7 +90,8 @@ class HybridRetriever:
             result["rrf_score"] = fusion_data["rrf_score"]
             result["dense_rank"] = fusion_data["dense_rank"]
             result["bm25_rank"] = fusion_data["bm25_rank"]
-
+            result["dense_score"] = fusion_data["dense_score"]
+            result["bm25_score"] = fusion_data["bm25_score"]
             results.append(result)
 
         return results
@@ -93,6 +104,7 @@ class HybridRetriever:
         source_path: str | None = None,
     ) -> list[dict]:
         dense_results = self.dense.search(
+
             query=query,
             limit=candidate_limit,
             source_path=source_path,

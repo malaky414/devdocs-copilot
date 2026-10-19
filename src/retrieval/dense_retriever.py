@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 import sys
 
@@ -6,22 +7,31 @@ from sentence_transformers import SentenceTransformer
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-sys.path.insert(0, str(PROJECT_ROOT))
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
 
 class DenseRetriever:
     def __init__(
         self,
-        qdrant_url: str = "http://localhost:6333",
-        collection_name: str = "fastapi_docs",
-        model_name: str = "sentence-transformers/all-MiniLM-L6-v2",
+        qdrant_url: str | None = None,
+        collection_name: str | None = None,
+        model_name: str | None = None,
     ) -> None:
         self.client = QdrantClient(
-            url=qdrant_url,
+            url=qdrant_url or os.getenv("QDRANT_URL", "http://localhost:6333"),
             timeout=60,
         )
-        self.collection_name = collection_name
-        self.model = SentenceTransformer(model_name)
+        self.collection_name = collection_name or os.getenv(
+            "QDRANT_COLLECTION_NAME", "fastapi_docs"
+        )
+        self.model = SentenceTransformer(
+            model_name
+            or os.getenv(
+                "EMBEDDING_MODEL",
+                "sentence-transformers/all-MiniLM-L6-v2",
+            )
+        )
 
     def search(
         self,
@@ -36,7 +46,6 @@ class DenseRetriever:
         ).tolist()
 
         conditions = []
-
         if source_path is not None:
             conditions.append(
                 models.FieldCondition(
@@ -44,7 +53,6 @@ class DenseRetriever:
                     match=models.MatchValue(value=source_path),
                 )
             )
-
         if start_section is not None:
             conditions.append(
                 models.FieldCondition(
@@ -53,13 +61,7 @@ class DenseRetriever:
                 )
             )
 
-        query_filter = None
-
-        if conditions:
-            query_filter = models.Filter(
-                must=conditions,
-            )
-
+        query_filter = models.Filter(must=conditions) if conditions else None
         results = self.client.query_points(
             collection_name=self.collection_name,
             query=query_vector,
@@ -73,6 +75,7 @@ class DenseRetriever:
                 "score": point.score,
                 "content": point.payload.get("content", ""),
                 "source_path": point.payload.get("source_path"),
+                "file_name": point.payload.get("file_name"),
                 "section_path": point.payload.get("section_path", []),
                 "start_section": point.payload.get("start_section"),
                 "chunk_index": point.payload.get("chunk_index"),

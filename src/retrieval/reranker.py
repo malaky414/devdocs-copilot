@@ -8,6 +8,27 @@ DEFAULT_MODEL = "cross-encoder/ms-marco-MiniLM-L6-v2"
 
 
 class CrossEncoderReranker:
+
+    @staticmethod
+    def _candidate_text(candidate: dict) -> str:
+        section_path = (
+            candidate.get("section_path")
+            or candidate.get("headings")
+            or []
+        )
+
+        if isinstance(section_path, str):
+            section_path = [section_path]
+
+        sections = " > ".join(str(section) for section in section_path)
+        source = candidate.get("source_path", "unknown")
+
+        return (
+            f"Document: {source}\n"
+            f"Section: {sections}\n"
+            f"Content:\n{candidate.get('content', '')}"
+        )
+
     def __init__(
         self,
         model_name: str = DEFAULT_MODEL,
@@ -28,7 +49,7 @@ class CrossEncoderReranker:
             return []
 
         pairs = [
-            (query, candidate["content"])
+            (query, self._candidate_text(candidate))
             for candidate in candidates
         ]
 

@@ -1,68 +1,86 @@
+
 from src.retrieval.reranker import CrossEncoderReranker
 
 
 class FakeCrossEncoder:
-    def predict(
-        self,
-        pairs: list[tuple[str, str]],
-        show_progress_bar: bool = False,
-    ) -> list[float]:
-        return [
-            0.2,
-            0.9,
-            0.5,
-        ]
+    def __init__(self, scores):
+        self.scores = scores
+        self.received_pairs = None
+
+    def predict(self, pairs, show_progress_bar=False):
+        self.received_pairs = pairs
+        return self.scores
 
 
-def make_candidate(text: str) -> dict:
-    return {
-        "content": text,
-        "source_path": "test.md",
-        "section_path": ["Test"],
-        "chunk_index": 0,
-        "token_count": 10,
-    }
-
-
-def test_reranker_sorts_by_score() -> None:
-    reranker = CrossEncoderReranker(
-        model=FakeCrossEncoder(),
-    )
+def test_reranker_receives_document_and_section_context():
+    model = FakeCrossEncoder([0.9])
+    reranker = CrossEncoderReranker(model=model)
 
     candidates = [
-        make_candidate("Document A"),
-        make_candidate("Document B"),
-        make_candidate("Document C"),
+        {
+            "source_path": "fastapi/tutorial/path-params.md",
+            "section_path": ["Path Parameters"],
+            "content": "Declare a path parameter using {item_id}.",
+            "chunk_index": 0,
+        }
     ]
 
     results = reranker.rerank(
-        query="test query",
+        query="How do I define a path parameter?",
         candidates=candidates,
-        limit=3,
     )
 
-    assert results[0]["content"] == "Document B"
-    assert results[1]["content"] == "Document C"
-    assert results[2]["content"] == "Document A"
+    assert len(model.received_pairs) == 1
 
+    query, document_text = model.received_pairs[0]
+
+    assert query == "How do I define a path parameter?"
+    assert "fastapi/tutorial/path-params.md" in document_text
+    assert "Path Parameters" in document_text
+    assert "Declare a path parameter" in document_text
     assert results[0]["reranker_score"] == 0.9
 
 
-def test_reranker_respects_limit() -> None:
-    reranker = CrossEncoderReranker(
-        model=FakeCrossEncoder(),
-    )
+def test_reranker_sorts_by_score_and_preserves_metadata():
+    model = FakeCrossEncoder([0.2, 0.9])
+    reranker = CrossEncoderReranker(model=model)
 
     candidates = [
-        make_candidate("Document A"),
-        make_candidate("Document B"),
-        make_candidate("Document C"),
+        {
+            "source_path": "fastapi/tutorial/background-tasks.md",
+            "section_path": ["Background Tasks"],
+            "content": "Background task content.",
+            "chunk_index": 4,
+        },
+        {
+            "source_path": "fastapi/tutorial/path-params.md",
+            "section_path": ["Path Parameters"],
+            "content": "Path parameter content.",
+            "chunk_index": 0,
+        },
     ]
 
     results = reranker.rerank(
-        query="test query",
+        query="How do I define a path parameter?",
         candidates=candidates,
         limit=2,
     )
 
-    assert len(results) == 2
+    assert results[0]["source_path"] == (
+        "fastapi/tutorial/path-params.md"
+    )
+    assert results[0]["chunk_index"] == 0
+    assert results[0]["reranker_score"] == 0.9
+    assert results[1]["reranker_score"] == 0.2
+
+
+def test_reranker_handles_empty_candidates():
+    model = FakeCrossEncoder([])
+    reranker = CrossEncoderReranker(model=model)
+
+    assert reranker.rerank(
+        query="Any question",
+        candidates=[],
+    ) == []
+
+    assert model.received_pairs is None
